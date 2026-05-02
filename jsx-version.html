@@ -31,6 +31,8 @@
                     {/* Curly braces { } let you insert JavaScript expressions into JSX */}
                     <h1 className="card-title">{title}</h1>
                     <p className="card-price">{price}</p>
+                    <p className="card-price-period">{pricePeriod}</p>
+                    <p className="card-price-amount">{priceAmount}</p>
                     <div className="card-content">
                         <p className="includes-text">{includesText}</p>
                         <ul className="features-list">
@@ -56,6 +58,7 @@
             const hobbyPlan = {
                 title: 'Hobby',
                 price: 'Free',
+                pricePeriod: null,
                 includesText: 'Includes:',
                 features: ['No credit card required', 'Limited Agent requests', 'Limited Tab completions'],
                 buttonText: 'Download',
@@ -63,7 +66,8 @@
             };
             const proPlan = {
                 title: 'Pro',
-                price: '$20/mo.',
+                price: '$20',
+                pricePeriod: '/mo.',
                 includesText: 'Everything in Hobby, plus:',
                 features: [
                     'Extended limits on Agent',
@@ -73,6 +77,19 @@
                 ],
                 buttonText: 'Get Pro',
                 buttonVariant: 'tierary',
+            };
+            const expertPlan = {
+                title: 'Expert',
+                price: '$200'
+                pricePeriod: '/mo.',
+                includesText: 'Everything in Pro, plus:',
+                features: [
+                    'Unlimited limits on Agent',
+                    'Background RATP Agents',
+                    'Maximum profit for us',
+                ],
+                buttonText: 'Get Expert',
+                buttonVariant: 'primary',
             };
 
             return (
@@ -84,6 +101,8 @@
                         {/* This is the same as writing: title="Hobby" price="Free" includesText="Includes:" etc. */}
                         <PricingCard {...hobbyPlan} />
                         <PricingCard {...proPlan} />
+                        <PricingCard {...expertPlan} />
+
                     </div>
                 </>
             );
